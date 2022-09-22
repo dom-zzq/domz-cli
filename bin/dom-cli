@@ -1,0 +1,29 @@
+#! /usr/bin/env node
+
+const program = require('commander');
+const chalk = require('chalk');
+
+program
+    .command('create <app-name>')
+    .description('create a new project')
+    .option('-f, --force', 'overwrite target directory if it exists')
+    .action((createdAppName, cmd) => {
+        require('../lib/create')(createdAppName, cmd)
+    })
+
+
+program
+    .on('--help', function () {
+        console.log('\n');
+        console.log(`Run ${chalk.cyan('domz-cli <command> --help')} to show more details`);
+        console.log('\n');
+    })
+
+
+
+program
+    .version(`dom-cli@${require('../package.json').version}`)
+    .usage(`<command> [option]`)
+
+program
+    .parse(process.argv)
