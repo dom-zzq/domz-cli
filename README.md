@@ -4,7 +4,7 @@
 # how to use
 npm i -g domz-cli 
 
-domz-cli create [your_project_name]
+domz-cli create -f 【your_project_name】
 
 
 # License
